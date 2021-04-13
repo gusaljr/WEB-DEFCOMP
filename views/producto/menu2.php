@@ -1,15 +1,15 @@
 <div class="menu-p">
   <div class="menu-pe menu-1" onclick="menuS1()" id="menuS11">
-    Portátiles y Tablets
+    Port&aacotetiles y Tablets
   </div>
   <div class="menu-pe menu-1" onclick="menuS2()" id="menuS22">
     PC/Componentes y TPV
   </div>
   <div class="menu-pe menu-1" onclick="menuS3()" id="menuS33">
-    Periféricos
+    Perif&eacotericos
   </div>
   <div class="menu-pe menu-1" onclick="menuS4()" id="menuS44">
-    Smartphone y Telefonía
+    Smartphone y Telefon&iacotea
   </div>
   <div class="menu-pe menu-1" onclick="menuS5()" id="menuS55">
     Almacenamiento
@@ -27,14 +27,12 @@
     Seguridad
   </div>
   <div class="menu-pe menu-1" onclick="menuS10()" id="menuS100">
-    Iluminación, Ocio y Hogar
+    Iluminaci&oacoten, Ocio y Hogar
   </div>
   <div class="menu-pe menu-1" onclick="menuS11()" id="menuS1110">
     Imagen y Sonido
   </div>
 </div>
-
-
 <div class="submenu menuS1" id="menuS1">
   <ul>
     <li> <a href="index.php?etiquet=LI"><b>Accesorios Limpieza</b></a> </li>

@@ -1,12 +1,12 @@
-<?php
- ?>
- <!DOCTYPE html>
- <html lang="en" dir="ltr">
- <head>
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<html lang="es-ES">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
     <script type="text/javascript">
 
     function ficha(ref){
@@ -139,11 +139,9 @@
       document.getElementById("menuS1110").style.color="#ffffff";
     }
     </script>
-
-   <meta charset="utf-1">
    <title><?php $data["titulo"] ?></title>
  </head>
-   <body>
+   <body ondblclick="cerrar2()">
      <div class="col-12 row justify-content-center rows">
      <div class="col-4">
          <?php include("views/producto/buscador.php"); ?>
@@ -151,7 +149,7 @@
      <div class="col-11">
        <?php include("views/producto/menu.php"); ?>
      </div>
-     </div>
+     
      <div class="col-12 container row ">
        <div class="col-3 ml-3">
          <img class="col-12" src="<?php echo  $data["productos"][0]['IMAGEN']; ?>" alt="<?php echo  $data["productos"][0]['TITULO']; ?>">
@@ -173,7 +171,10 @@
           </tr>
         </table>
 
-         <?php echo  $data["productos"][0]['FICHA']; ?>
+         <?php echo  $data["productos"][0]['FICHA']; 
+          $texto=strtolower(str_replace('"','',str_replace('.','-',str_replace(' ','-',$data["productos"][0]['TITULO']))));?>
+         <a href="https://www.infortisa.com/buscar/<?php echo $data["productos"][0]['CODIGOINTERNO']?>/" class="btn btn-primary">Ir Infortisa</a>
+
        </div>
      </div>
    </body>
