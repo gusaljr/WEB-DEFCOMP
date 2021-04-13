@@ -22,5 +22,6 @@ require_once "controllers/Productos.php";
   elseif (isset($_GET['buq'])) {
     $control = new Productos_Controler();
     $control ->index5();
+    
   }
  ?>

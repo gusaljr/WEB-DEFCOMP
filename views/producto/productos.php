@@ -222,10 +222,6 @@
        </div>
 
    </div>
-<script type="text/javascript">
-alert("Esto es la cesta");  
-</script>
-   </div>
 
 
    </body>
