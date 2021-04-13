@@ -58,6 +58,7 @@ class Productos_model
       $this->productos[]=$row;
     }
     return $this->productos;
+    
   }
 }
  ?>
