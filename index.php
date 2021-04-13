@@ -24,6 +24,5 @@ require_once "controllers/Productos.php";
     $control ->index5();
   }else{
     header('Location: index.php?home=home&&pg=1');
-    
   }
  ?>
