@@ -29,32 +29,31 @@
          <?php $dat=round(count($data["productos"])/1000,1); ?>
             <?php if ($dat > 1) {
               ?>           <?php  for ($i=(($_GET['pg']-1)*1000); $i < ($_GET['pg']*1000) ; $i++) {?>
-                           <div class="card mb-3 ml-3" style="width: 16rem;" onclick="ficha('<?php echo $data["productos"][$i]['REFFABRICANTE']; ?>')">
-                             <img class="card-img-top d-flex justify-content-center ml-4" src="<?php echo $data["productos"][$i]['IMAGEN']; ?>" alt="Card image cap" style="width:180px;">
-                             <div class="card-body">
-                               <b class="card-title"><a onclick="ficha('<?php echo $data["productos"][$i]['REFFABRICANTE']; ?>')"><?php echo $data["productos"][$i]['TITULO']; ?></a></b>
-                               <p class="card-text"> <b>EAN: </b> <?php echo $data["productos"][$i]['EAN']; ?><br>
-                                                     <b>Ref. Fabricante: </b> <?php echo $data["productos"][$i]['REFFABRICANTE']; ?>
-                               </p>
-                               <a href="#" class="price d-flex justify-content-center"><b> <?php
-                               if ($data["productos"][$i]['PRECIO'] <= 20) {
-                                 echo round($data["productos"][$i]['PRECIO'] *1.80*1.21, 2);
-                               }
-                               elseif ($data["productos"][$i]['PRECIO'] > 20 && $data["productos"][$i]['PRECIO'] <= 80) {
-                                 echo round($data["productos"][$i]['PRECIO'] *1.40*1.21, 2);
-                               }
-                               elseif ($data["productos"][$i]['PRECIO'] > 80 && $data["productos"][$i]['PRECIO'] < 120) {
-                                 echo round($data["productos"][$i]['PRECIO'] *1.30*1.21, 2);
-                               }
-                               elseif ($data["productos"][$i]['PRECIO'] >= 120) {
-                                 echo round($data["productos"][$i]['PRECIO'] *1.20*1.21 ,2);
-                               }
-                                ?> €</b></p>
-                             </div>
-                           </div>
-                         <?php } ?>
-                         <?php
-              }else {
+                <div class="card mb-3 ml-3" style="width: 16rem;" >
+                  <img class="card-img-top d-flex justify-content-center ml-4" src="<?php echo $data["productos"][$i]['IMAGEN']; ?>" alt="Card image cap" style="width:180px;">
+                  <div class="card-body">
+                    <b class="card-title"> <a onclick="ficha('<?php echo $data["productos"][$i]['REFFABRICANTE']; ?>')"><?php echo $data["productos"][$i]['TITULO']; ?></a></b>
+                    <p class="card-text"> <b>EAN: </b> <?php echo $data["productos"][$i]['EAN']; ?><br>
+                                          <b>Ref. Fabricante: </b> <?php echo $data["productos"][$i]['REFFABRICANTE']; ?>
+                    </p>
+                    <p href="#" class="price d-flex justify-content-center" ><b> <?php
+                    if ($data["productos"][$i]['PRECIO'] <= 20) {
+                      echo round($data["productos"][$i]['PRECIO'] *1.80*1.21, 2);
+                    }
+                    elseif ($data["productos"][$i]['PRECIO'] > 20 && $data["productos"][$i]['PRECIO'] <= 80) {
+                      echo round($data["productos"][$i]['PRECIO'] *1.40*1.21, 2);
+                    }
+                    elseif ($data["productos"][$i]['PRECIO'] > 80 && $data["productos"][$i]['PRECIO'] < 120) {
+                      echo round($data["productos"][$i]['PRECIO'] *1.30*1.21, 2);
+                    }
+                    elseif ($data["productos"][$i]['PRECIO'] >= 120) {
+                      echo round($data["productos"][$i]['PRECIO'] *1.20*1.21 ,2);
+                    }
+                     ?> €</b></p>
+                  </div>
+                </div>
+              <?php } }
+              else {
                 for ($i=0; $i < count($data["productos"]) ; $i++) {?>
                              <div class="card mb-3 ml-3" style="width: 16rem;" >
                                <img class="card-img-top d-flex justify-content-center ml-4" src="<?php echo $data["productos"][$i]['IMAGEN']; ?>" alt="Card image cap" style="width:180px;">
