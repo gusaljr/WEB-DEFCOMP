@@ -36,7 +36,7 @@
                     <p class="card-text"> <b>EAN: </b> <?php echo $data["productos"][$i]['EAN']; ?><br>
                                           <b>Ref. Fabricante: </b> <?php echo $data["productos"][$i]['REFFABRICANTE']; ?>
                     </p>
-                    <p href="#" class="price d-flex justify-content-center" ><b> <?php
+                    <a href="#" class="price d-flex justify-content-center" onclick="checkCookie('<?php echo $data["productos"][$i]['REFFABRICANTE']; ?>','<?php echo $data["productos"][$i]['TITULO']; ?>','<?php echo $data["productos"][$i]['IMAGEN']; ?>','<?php echo $data["productos"][$i]['PRECIO']; ?>','1')" ><b><?php
                     if ($data["productos"][$i]['PRECIO'] <= 20) {
                       echo round($data["productos"][$i]['PRECIO'] *1.80*1.21, 2);
                     }
@@ -49,7 +49,7 @@
                     elseif ($data["productos"][$i]['PRECIO'] >= 120) {
                       echo round($data["productos"][$i]['PRECIO'] *1.20*1.21 ,2);
                     }
-                     ?> €</b></p>
+                     ?> €</b></a>
                   </div>
                 </div>
               <?php } }
@@ -62,7 +62,7 @@
                                  <p class="card-text"> <b>EAN: </b> <?php echo $data["productos"][$i]['EAN']; ?><br>
                                                        <b>Ref. Fabricante: </b> <?php echo $data["productos"][$i]['REFFABRICANTE']; ?>
                                  </p>
-                                 <p href="#" class="price d-flex justify-content-center" ><b> <?php
+                                 <a href="#" class="price d-flex justify-content-center" onclick="checkCookie('<?php echo $data["productos"][$i]['REFFABRICANTE']; ?>','<?php echo $data["productos"][$i]['TITULO']; ?>','<?php echo $data["productos"][$i]['IMAGEN']; ?>','<?php echo $data["productos"][$i]['PRECIO']; ?>','1')" ><b> <?php
                                  if ($data["productos"][$i]['PRECIO'] <= 20) {
                                    echo round($data["productos"][$i]['PRECIO'] *1.80*1.21, 2);
                                  }
@@ -75,7 +75,7 @@
                                  elseif ($data["productos"][$i]['PRECIO'] >= 120) {
                                    echo round($data["productos"][$i]['PRECIO'] *1.20*1.21 ,2);
                                  }
-                                  ?> €</b></p>
+                                  ?> €</b></a>
                                </div>
                              </div>
                            <?php }  } ?>
@@ -86,6 +86,7 @@
 
             </form>
           <?php }?>
+          <button onclick="checkCookie('34','teclado logitet','34.6','7')" type="button" name="button">verCookies</button>
         </div>
        </div>
 
