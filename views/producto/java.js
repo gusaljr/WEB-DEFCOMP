@@ -136,39 +136,41 @@ function setCookie(cname,cvalue,exdays) {
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
-function getCookie(cname) {
-  var name = cname + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(';');
-  for(var i = 0; i < ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
+function getCookie() {
+  var cookies =document.cookie;
+  var arrayDeCookies = cookies.split(";");
+      for (var i = 0; i < arrayDeCookies.length; i++) {
+       var arrayDeCesta=arrayDeCookies[i].split("=");
+
+      for (var i = 0; i < arrayDeCesta.length; i++) {
+        if (arrayDeCesta[i] == "cesta") {
+            var arrayarticulos=arrayDeCesta[i+1].split("~~");
+            for (var i = 0; i < arrayarticulos.length-1; i++) {
+            console.log(decodeURIComponent(arrayarticulos[i])+ "       "+i);
+            }
+        }
     }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
+}
 }
 
 function checkCookie(cod,nombre,foto,precio,unid) {
   if (document.cookie == "") {
-    setCookie("cesta", cod+"&"+nombre+"&"+foto+"&"+precio+"&"+unid+",", 2);
-
-
-
+    var cookies2=cod+"&"+nombre+"&"+foto+"&"+precio+"&"+unid+"~~";
+    setCookie("cesta", cookies2, 2);
+    getCookie();
   }else {
     var cookies =document.cookie;
     var arrayDeCookies = cookies.split(";");
-    arrayDeCookies=arrayDeCookies[0].split("=")
-    var cesta=arrayDeCookies[1]+cod+"&"+nombre+"&"+foto+"&"+precio+"&"+unid+",";
-    setCookie("cesta",cesta, 2);
-  alert(arrayDeCookies[0]+"\n"+arrayDeCookies[1]);
+    for (var i = 0; i < arrayDeCookies.length; i++) {
+      var arrayDeCesta = arrayDeCookies[i].split("=");
+      for (var i = 0; i < arrayDeCesta.length; i++) {
+        if (arrayDeCesta[i]=="cesta") {
+          var cookies2=arrayDeCesta[i+1]+encodeURIComponent(cod+"&"+nombre+"&"+foto+"&"+precio+"&"+unid+"~~");
+          setCookie("cesta",cookies2,2);
+        }
+      }
+
+    }
+    getCookie();
   }
-
-
-
-
-
 }

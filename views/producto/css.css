@@ -306,4 +306,8 @@ html{
   .price .not-active {
             pointer-events: none;
             cursor: default;
-        } 
+        }
+
+  table ul li{
+    border: 0px solid black;
+  }

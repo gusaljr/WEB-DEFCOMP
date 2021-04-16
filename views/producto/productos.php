@@ -28,7 +28,9 @@
        <div id="buscadorII" class="col-xl-12 row justify-content-center">
          <?php $dat=round(count($data["productos"])/1000,1); ?>
             <?php if ($dat > 1) {
-              ?>           <?php  for ($i=(($_GET['pg']-1)*1000); $i < ($_GET['pg']*1000) ; $i++) {?>
+              ?>           <?php  for ($i=(($_GET['pg']-1)*1000); $i < ($_GET['pg']*1000) ; $i++) {
+                  $titulo=str_replace ( '"' ,"", $data["productos"][$i]['TITULO']);
+                ?>
                 <div class="card mb-3 ml-3" style="width: 16rem;" >
                   <img class="card-img-top d-flex justify-content-center ml-4" src="<?php echo $data["productos"][$i]['IMAGEN']; ?>" alt="Card image cap" style="width:180px;">
                   <div class="card-body">
@@ -36,7 +38,7 @@
                     <p class="card-text"> <b>EAN: </b> <?php echo $data["productos"][$i]['EAN']; ?><br>
                                           <b>Ref. Fabricante: </b> <?php echo $data["productos"][$i]['REFFABRICANTE']; ?>
                     </p>
-                    <a href="#" class="price d-flex justify-content-center" onclick="checkCookie('<?php echo $data["productos"][$i]['REFFABRICANTE']; ?>','<?php echo $data["productos"][$i]['TITULO']; ?>','<?php echo $data["productos"][$i]['IMAGEN']; ?>','<?php echo $data["productos"][$i]['PRECIO']; ?>','1')" ><b><?php
+                    <a href="#" class="price d-flex justify-content-center" onclick="checkCookie('<?php echo $data["productos"][$i]['REFFABRICANTE']; ?>','<?php echo $titulo ?>','<?php echo $data["productos"][$i]['IMAGEN']; ?>','<?php echo $data["productos"][$i]['PRECIO']; ?>','1')" ><b><?php
                     if ($data["productos"][$i]['PRECIO'] <= 20) {
                       echo round($data["productos"][$i]['PRECIO'] *1.80*1.21, 2);
                     }
@@ -54,7 +56,10 @@
                 </div>
               <?php } }
               else {
-                for ($i=0; $i < count($data["productos"]) ; $i++) {?>
+                for ($i=0; $i < count($data["productos"]) ; $i++) {
+                  $titulo=str_replace ( '"' ,"", $data["productos"][$i]['TITULO']);
+
+                  ?>
                              <div class="card mb-3 ml-3" style="width: 16rem;" >
                                <img class="card-img-top d-flex justify-content-center ml-4" src="<?php echo $data["productos"][$i]['IMAGEN']; ?>" alt="Card image cap" style="width:180px;">
                                <div class="card-body">
@@ -62,7 +67,7 @@
                                  <p class="card-text"> <b>EAN: </b> <?php echo $data["productos"][$i]['EAN']; ?><br>
                                                        <b>Ref. Fabricante: </b> <?php echo $data["productos"][$i]['REFFABRICANTE']; ?>
                                  </p>
-                                 <a href="#" class="price d-flex justify-content-center" onclick="checkCookie('<?php echo $data["productos"][$i]['REFFABRICANTE']; ?>','<?php echo $data["productos"][$i]['TITULO']; ?>','<?php echo $data["productos"][$i]['IMAGEN']; ?>','<?php echo $data["productos"][$i]['PRECIO']; ?>','1')" ><b> <?php
+                                 <a href="#" class="price d-flex justify-content-center" onclick="checkCookie('<?php echo $data["productos"][$i]['REFFABRICANTE']; ?>','<?php echo $titulo ?>','<?php echo $data["productos"][$i]['IMAGEN']; ?>','<?php echo $data["productos"][$i]['PRECIO']; ?>','1')" ><b> <?php
                                  if ($data["productos"][$i]['PRECIO'] <= 20) {
                                    echo round($data["productos"][$i]['PRECIO'] *1.80*1.21, 2);
                                  }
