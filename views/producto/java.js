@@ -166,7 +166,7 @@ function checkCookie(cod,nombre,foto,precio,unid) {
       for (var i = 0; i < arrayDeCesta.length; i++) {
         if (arrayDeCesta[i]=="cesta") {
           var cookies2=arrayDeCesta[i+1]+encodeURIComponent(cod+"&"+nombre+"&"+foto+"&"+precio+"&"+unid+"~~");
-          setCookie("cesta",cookies2,2);
+          setCookie("cesta",cookies2 ,2);
         }
       }
 
