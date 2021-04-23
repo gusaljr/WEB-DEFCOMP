@@ -129,10 +129,33 @@ function menuS11() {
   document.getElementById("menuS1110").style.color="#25446b";
 }
 
+function setCookie(cname,cvalue,exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  var expires = "expires=" + d.toGMTString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function cookiesCant() {
+  var cookiesI =document.cookie.split(";");
+  for (var i = 0; i < cookiesI.length; i++) {
+    var cookiesII=cookiesI[i].split("=");
+    if (cookiesII[i]=="cesta") {
+      cookiesII[i+1]=decodeURIComponent(cookiesII[i+1]);
+      var cookiesIII=cookiesII[i+1].split("~~");
+      for (var j = 0; j < cookiesIII.length-1; j++) {
+        cookiesIV=cookiesIII[j].split("&");
+        alert(cookiesIV[0]);
+      }
+    }
+  }
+}
+
 function checkCookie(cod,nombre,foto,precio,unid) {
   if (document.cookie == "") {
     var cookies2=cod+"&"+nombre+"&"+foto+"&"+precio+"&"+unid+"~~";
     setCookie("cesta", cookies2, 2);
+    cookiesCant();
 
   }else {
     var cookies =document.cookie;
@@ -146,7 +169,7 @@ function checkCookie(cod,nombre,foto,precio,unid) {
         }
       }
 
-    }
+    }    cookiesCant();
 
   }
 }
